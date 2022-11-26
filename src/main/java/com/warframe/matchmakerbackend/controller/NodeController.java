@@ -1,4 +1,4 @@
-package com.warframe.matchmakerbackend.websocket;
+package com.warframe.matchmakerbackend.controller;
 
 import java.util.List;
 
@@ -16,11 +16,9 @@ public class NodeController {
 	@Autowired
 	private NodeService nodeService;
 	
-	@MessageMapping("/nodes/requestor")
-	@SendTo("/nodes/receptor")
+	@MessageMapping("/ws-destination")
+	@SendTo("/ws-broker")
 	public List<Node> nodes() throws Exception {
-		Thread.sleep(1000); // simulated delay
 		return nodeService.getNodes();
 	}
-
 }
