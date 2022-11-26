@@ -11,7 +11,7 @@ import com.warframe.matchmakerbackend.domain.Node;
 import com.warframe.matchmakerbackend.service.NodeService;
 
 @Controller
-public class NodeSocketController {
+public class NodeController {
 	
 	@Autowired
 	private NodeService nodeService;
