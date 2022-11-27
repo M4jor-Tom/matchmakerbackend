@@ -5,15 +5,18 @@ public class Node {
 
 	private String name;
 	
+	private long waitingPlayersCount;
+
 	public Node() {
-		this(NodeId.NO_ID, "");
+		this(NodeId.NO_ID, "", 0);
 	}
 
-	public Node(NodeId nodeId, String name) {
+	public Node(NodeId nodeId, String name, int waitingPlayersCount) {
 		super();
 		
 		this.setNodeId(nodeId);
 		this.setName(name);
+		this.setWaitingPlayersCount(waitingPlayersCount);
 	}
 	
 	public NodeId getNodeId() {
@@ -30,5 +33,13 @@ public class Node {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public long getWaitingPlayersCount() {
+		return waitingPlayersCount;
+	}
+
+	public void setWaitingPlayersCount(long waitingPlayersCount) {
+		this.waitingPlayersCount = waitingPlayersCount;
 	}
 }
