@@ -5,7 +5,13 @@ public class Node {
 
 	private String name;
 	
+	public Node() {
+		this(NodeId.NO_ID, "");
+	}
+
 	public Node(NodeId nodeId, String name) {
+		super();
+		
 		this.setNodeId(nodeId);
 		this.setName(name);
 	}
