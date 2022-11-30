@@ -6,12 +6,25 @@ import org.springframework.stereotype.Service;
 
 import com.warframe.matchmakerbackend.domain.Node;
 import com.warframe.matchmakerbackend.domain.NodeId;
+import com.warframe.matchmakerbackend.domain.dto.NodeDTO;
 import com.warframe.matchmakerbackend.service.NodeService;
 
 @Service
 public class NodeServiceImpl implements NodeService {
+	
+	private long getWaitingPlayersCountForNode(NodeId nodeId) {
+		return 1;
+	}
+	
+	private Node getNodeById(NodeId nodeId) {
+		return new Node(NodeId.NO_ID, "node1");
+	}
+	
 	@Override
-	public List<Node> getUpdatedNodes() {
-		return List.of(new Node(NodeId.NO_ID, "node1", 1), new Node(NodeId.NO_ID, "node2", 2));
+	public List<NodeDTO> getUpdatedNodeDTOs() {
+		return List.of(
+				new NodeDTO(getNodeById(NodeId.NO_ID), getWaitingPlayersCountForNode(NodeId.NO_ID)),
+				new NodeDTO(getNodeById(NodeId.NO_ID), getWaitingPlayersCountForNode(NodeId.NO_ID))
+		);
 	}
 }
