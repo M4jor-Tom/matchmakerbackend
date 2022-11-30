@@ -19,7 +19,7 @@ public class NodeController {
 	
 	@MessageMapping("/ws-destination")
 	@SendTo("/ws-broker")
-	public Node getUpdatedNode(NodeSubscription nodeSubscription) throws Exception {
-		return nodeService.getUpdatedNode();
+	public List<Node> getUpdatedNode(NodeSubscription nodeSubscription) throws Exception {
+		return nodeService.getUpdatedNodes();
 	}
 }
