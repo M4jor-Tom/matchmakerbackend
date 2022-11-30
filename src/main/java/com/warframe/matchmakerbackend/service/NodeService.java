@@ -2,8 +2,8 @@ package com.warframe.matchmakerbackend.service;
 
 import java.util.List;
 
-import com.warframe.matchmakerbackend.domain.dto.NodeDTO;
+import com.warframe.matchmakerbackend.domain.dto.NodeUpdate;
 
 public interface NodeService {
-	public List<NodeDTO> getUpdatedNodeDTOs();
+	public List<NodeUpdate> getNodeUpdates();
 }
