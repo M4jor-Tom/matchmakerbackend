@@ -1,25 +1,26 @@
 package com.warframe.matchmakerbackend.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.warframe.matchmakerbackend.domain.NodeSubscription;
-import com.warframe.matchmakerbackend.domain.dto.NodeUpdate;
 import com.warframe.matchmakerbackend.service.NodeService;
 
 @Controller
 public class NodeController {
+	
+	private static Gson GSON = new GsonBuilder().create();
 	
 	@Autowired
 	private NodeService nodeService;
 	
 	@MessageMapping("/ws-destination")
 	@SendTo("/ws-broker")
-	public List<NodeUpdate> getUpdatedNode(NodeSubscription nodeSubscription) throws Exception {
-		return nodeService.getNodeUpdates();
+	public String getUpdatedNode(NodeSubscription nodeSubscription) throws Exception {
+		return GSON.toJson(nodeService.getNodeUpdates());
 	}
 }
