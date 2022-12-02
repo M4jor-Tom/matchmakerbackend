@@ -1,4 +1,4 @@
-package config;
+package com.warframe.matchmakerbackend.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
