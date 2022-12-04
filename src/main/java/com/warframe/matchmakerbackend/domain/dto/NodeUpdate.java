@@ -18,12 +18,12 @@ public class NodeUpdate implements Serializable{
 	private NodeId nodeId;
 	
 	@SuppressWarnings("unused")
-	private long waitingPlayersCount;
+	private Long waitingPlayersCount;
 	
 	@SuppressWarnings("unused")
 	private boolean isPlayerSubscribed;
 
-	public NodeUpdate(NodeId nodeId, long waitingPlayersCount, boolean isPlayerSubscribed) {
+	public NodeUpdate(NodeId nodeId, Long waitingPlayersCount, boolean isPlayerSubscribed) {
 		super();
 		
 		this.nodeId = nodeId;
