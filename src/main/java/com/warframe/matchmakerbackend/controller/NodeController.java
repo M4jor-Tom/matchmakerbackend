@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.warframe.matchmakerbackend.domain.NodeSubscription;
+import com.warframe.matchmakerbackend.domain.Action;
 import com.warframe.matchmakerbackend.service.NodeService;
 
 @Controller
@@ -20,7 +20,9 @@ public class NodeController {
 	
 	@MessageMapping("/ws-destination")
 	@SendTo("/ws-broker")
-	public String getUpdatedNode(NodeSubscription nodeSubscription) throws Exception {
+	public String getUpdatedNode(String actionJson) throws Exception {
+		Action action = GSON.fromJson(actionJson, Action.class);
+		System.out.println(action);
 		return GSON.toJson(nodeService.getNodeUpdates());
 	}
 }
